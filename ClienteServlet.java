@@ -34,7 +34,6 @@ public class ClienteServlet extends HttpServlet{
         System.out.println("Chamando service...");
         super.service(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
-    
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +44,10 @@ public class ClienteServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("Chamou o método post...");
+        
+        String email = req.getParameter("email");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().print("Email descrito "+email+" !");
     }
 
     @Override
