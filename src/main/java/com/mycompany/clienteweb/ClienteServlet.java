@@ -19,6 +19,23 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/cliente","/clienteController","/clienteServlet"})
 public class ClienteServlet extends HttpServlet{
 
+    public ClienteServlet() {
+        System.out.println("Construindo servlet...");
+    }
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("Iniciando o servlet...");
+        super.init(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Chamando service...");
+        super.service(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
@@ -28,16 +45,16 @@ public class ClienteServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        resp.getWriter().print("Chamou o método post...");
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
+        resp.getWriter().print("Chamou o método put...");
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
+        resp.getWriter().print("Chamou o método delete...");
     }
 }
